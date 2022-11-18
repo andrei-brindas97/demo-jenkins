@@ -7,7 +7,7 @@ pipeline {
     stage('Scan') {
       steps {
         withSonarQubeEnv(installationName: 'sq-poc') { 
-          sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
+          sh './mvnw clean verify sonar:sonar -Dsonar.projectKey=teo-common -Dsonar.host.url=http://51.116.138.213:9000 -Dsonar.login=squ_c94f0ef7f370560ade2ae5ff335281495ddde214'
         }
       }
     }
